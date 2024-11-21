@@ -1,5 +1,18 @@
 
 const AddUser = () => {
+
+    const handleAddUser = (e) => {
+        e.preventDefault()
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name');
+        const email = form.get('email');
+        const gender = form.get('gender');
+        const status = form.get('status');
+
+        const newUser = { name, email, gender, status };
+    }
+
+
     return (
         <section>
             <div className="container mx-auto px-4">
@@ -13,7 +26,7 @@ const AddUser = () => {
                             <h2 className="text-3xl font-medium text-[#2A2F43] mb-3">New User</h2>
                             <p className="text-gray-400 text-lg">Use the below form to create a new Account</p>
                         </div>
-                        <form>
+                        <form onSubmit={handleAddUser}>
                             <div className="mb-5">
                                 <label htmlFor="name" className="block mb-2 text-lg font-normal text-gray-400">Name</label>
                                 <input type="text" name="name" className="border rounded border-gray-300 focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:border-blue-500" placeholder="Emelia Erickson" required="" />
@@ -48,7 +61,7 @@ const AddUser = () => {
                                     </label>
                                 </div>
                             </div>
-                            <button className="bg-[#59DB93] w-full py-4 cursor-pointer text-center rounded">Save</button>
+                            <button type="submit" className="bg-[#59DB93] w-full py-4 cursor-pointer text-center rounded">Save</button>
                         </form>
                     </div>
                 </div>
