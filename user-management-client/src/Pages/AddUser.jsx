@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 
 const AddUser = () => {
 
@@ -10,6 +12,26 @@ const AddUser = () => {
         const status = form.get('status');
 
         const newUser = { name, email, gender, status };
+
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'User has been added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
 
