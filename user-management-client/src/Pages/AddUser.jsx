@@ -31,7 +31,7 @@ const AddUser = () => {
                         title: 'Success!',
                         text: 'User has been added successfully',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Ok'
                     })
                 }
             })
