@@ -1,9 +1,19 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const count = 0;
-
 const Table = ({ allUsers }) => {
+    const count = 0;
+
+    const handleDelete = (id) => {
+        console.log(id)
+        fetch(`http://localhost:5000/users/${id}`, {
+            method:"DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    }
 
     return (
         <div className="bg-white py-8 overflow-auto mt-3 h-screen">
@@ -41,7 +51,7 @@ const Table = ({ allUsers }) => {
                                         <td className="p-2 md:p-4">{user.status}</td>
                                         <td className="relative p-2 md:p-4 flex md:gap-2 justify-center space-x-2">
                                             <Link to={`/user/${user._id}`} className="bg-blue-500 text-white px-3 py-1 rounded-md text-xs md:text-sm transition hover:bg-[#1d488f]">Edit</Link>
-                                            <button className="bg-red-500 text-white px-3 py-1 rounded-md text-xs md:text-sm transition hover:bg-[#d32323]">Delete</button>
+                                            <button onClick={() => handleDelete(user._id)} className="bg-red-500 text-white px-3 py-1 rounded-md text-xs md:text-sm transition hover:bg-[#d32323]">Delete</button>
                                         </td>
                                     </tr>
                                 ))

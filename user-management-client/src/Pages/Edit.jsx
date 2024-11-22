@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Edit = () => {
@@ -13,6 +13,7 @@ const Edit = () => {
         status,
     } = updatedUser;
 
+    const navigate = useNavigate()
 
     const handleUpdate = (e) => {
         e.preventDefault()
@@ -41,6 +42,8 @@ const Edit = () => {
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
+
+                    navigate('/')
                 }
             })
 
