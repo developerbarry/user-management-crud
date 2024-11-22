@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Table from "../components/Table";
 
 const Home = () => {
+
+    const allUsers = useLoaderData()
+    console.log(allUsers)
     return (
         <section>
             <div className="container mx-auto px-4">
@@ -13,7 +16,7 @@ const Home = () => {
                         </Link>
                     </div>
                     <div>
-                        <Table />
+                        <Table allUsers={allUsers} />
                     </div>
                 </div>
             </div>
