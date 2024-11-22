@@ -45,14 +45,14 @@ const AddUser = () => {
     return (
         <section>
             <div className="container mx-auto px-4">
-                <div className="pt-24">
+                <div className="py-10 md:pt-24">
                     <button
                     onClick={handleNavigate}
-                    className="flex items-center gap-1 px-10 text-lg text-[#551A8B] cursor-pointer font-normal">
+                    className="flex items-center gap-1 md:px-10 mb-5 text-lg text-[#551A8B] cursor-pointer font-normal">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#551A8B"><path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z" /></svg>
                         <span>All Users</span>
                     </button>
-                    <div className="font-roboto px-36 py-10">
+                    <div className="font-roboto md:px-36 md:py-10">
                         <div className="text-center">
                             <h2 className="text-3xl font-medium text-[#2A2F43] mb-3">New User</h2>
                             <p className="text-gray-400 text-lg">Use the below form to create a new Account</p>

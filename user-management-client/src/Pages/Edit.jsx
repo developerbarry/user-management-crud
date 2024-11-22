@@ -53,8 +53,8 @@ const Edit = () => {
     return (
         <section>
             <div className="container mx-auto px-4">
-                <div className="font-roboto px-36 py-10">
-                    <div className="text-center">
+                <div className="font-roboto md:px-36 md:py-10">
+                    <div className="text-center my-8">
                         <h2 className="text-3xl font-medium text-[#2A2F43] mb-3">Update User</h2>
                         <p className="text-gray-400 text-lg">Use the below form to update your Account</p>
                     </div>

@@ -1,18 +1,46 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Table = ({ allUsers }) => {
+
+    const [users, setUsers] = useState(allUsers)
     const count = 0;
 
     const handleDelete = (id) => {
-        console.log(id)
-        fetch(`http://localhost:5000/users/${id}`, {
-            method:"DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+
+                            const exsit = users.filter(elementUser => elementUser._id !== id);
+                            setUsers(exsit)
+                            
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+
     }
 
     return (
@@ -42,7 +70,7 @@ const Table = ({ allUsers }) => {
                         </thead>
                         <tbody>
                             {
-                                allUsers.map(user => (
+                                users.map(user => (
                                     <tr key={user._id} className="border-b text-xs md:text-base text-center text-[#2A2F43] font-medium">
                                         <td className="p-2 md:p-4">{count + 1}</td>
                                         <td className="p-2 md:p-4">{user.name}</td>
