@@ -8,6 +8,7 @@ import {
 import Root from './components/Root';
 import Home from './Pages/Home';
 import AddUser from './Pages/AddUser';
+import Edit from './Pages/Edit';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: 'add-user',
         element: <AddUser />
+      },
+      {
+        path: 'user/:id',
+        element: <Edit />,
+        loader: ({params}) => fetch(`http://localhost:5000/users/${params.id}`)
       }
     ]
   },

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const count = 0;
 
@@ -39,7 +40,7 @@ const Table = ({ allUsers }) => {
                                         <td className="p-2 md:p-4">{user.gender}</td>
                                         <td className="p-2 md:p-4">{user.status}</td>
                                         <td className="relative p-2 md:p-4 flex md:gap-2 justify-center space-x-2">
-                                            <button className="bg-blue-500 text-white px-3 py-1 rounded-md text-xs md:text-sm transition hover:bg-[#1d488f]">Edit</button>
+                                            <Link to={`/user/${user._id}`} className="bg-blue-500 text-white px-3 py-1 rounded-md text-xs md:text-sm transition hover:bg-[#1d488f]">Edit</Link>
                                             <button className="bg-red-500 text-white px-3 py-1 rounded-md text-xs md:text-sm transition hover:bg-[#d32323]">Delete</button>
                                         </td>
                                     </tr>
