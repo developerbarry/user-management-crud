@@ -69,7 +69,7 @@ const Table = ({ allUsers }) => {
                         </thead>
                         <tbody>
                             {
-                                users.map(user => (
+                                users?.map(user => (
                                     <tr key={user._id} className="border-b text-xs md:text-base text-center text-[#2A2F43] font-medium">
                                         <td className="p-2 md:p-4">{count + 1}</td>
                                         <td className="p-2 md:p-4">{user.name}</td>
