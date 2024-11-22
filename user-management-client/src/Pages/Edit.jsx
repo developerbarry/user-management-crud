@@ -25,7 +25,7 @@ const Edit = () => {
 
         const updateNewUser = { name, email, gender, status };
 
-        fetch(`http://localhost:5000/users/${_id}`, {
+        fetch(`https://user-management-server-ruddy-seven.vercel.app/users/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -34,7 +34,6 @@ const Edit = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',

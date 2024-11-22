@@ -20,17 +20,16 @@ const Table = ({ allUsers }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://user-management-server-ruddy-seven.vercel.app/users/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
                         if (data.deletedCount > 0) {
 
                             const exsit = users.filter(elementUser => elementUser._id !== id);
                             setUsers(exsit)
-                            
+
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",

@@ -16,7 +16,7 @@ const AddUser = () => {
 
         const newUser = { name, email, gender, status };
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://user-management-server-ruddy-seven.vercel.app/users', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -25,7 +25,6 @@ const AddUser = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
