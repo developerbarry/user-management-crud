@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch('https://user-management-server-ruddy-seven.vercel.app/users')
+        loader: () => fetch('https://user-crud-management-five.vercel.app/users')
       },
       {
         path: 'add-user',
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: 'user/:id',
         element: <Edit />,
-        loader: ({params}) => fetch(`https://user-management-server-ruddy-seven.vercel.app/users/${params.id}`)
+        loader: ({params}) => fetch(`https://user-crud-management-five.vercel.app/users/${params.id}`)
       }
     ]
   },

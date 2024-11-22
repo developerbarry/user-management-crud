@@ -20,7 +20,7 @@ const Table = ({ allUsers }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://user-management-server-ruddy-seven.vercel.app/users/${id}`, {
+                fetch(`https://user-crud-management-five.vercel.app/users/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

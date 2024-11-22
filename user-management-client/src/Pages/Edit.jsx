@@ -25,7 +25,7 @@ const Edit = () => {
 
         const updateNewUser = { name, email, gender, status };
 
-        fetch(`https://user-management-server-ruddy-seven.vercel.app/users/${_id}`, {
+        fetch(`https://user-crud-management-five.vercel.app/users/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

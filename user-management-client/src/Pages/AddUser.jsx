@@ -16,7 +16,7 @@ const AddUser = () => {
 
         const newUser = { name, email, gender, status };
 
-        fetch('https://user-management-server-ruddy-seven.vercel.app/users', {
+        fetch('https://user-crud-management-five.vercel.app/users', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
